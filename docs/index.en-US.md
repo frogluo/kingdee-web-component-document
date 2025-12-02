@@ -1,7 +1,7 @@
 ---
 hero:
-  title: KWC组件库
-  description: kingdee web component 组件库文档
+  title: KWC library
+  description: Kingdee Web Component Library Document
 #   actions:
 #     - text: Hello
 #       link: /

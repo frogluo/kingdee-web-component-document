@@ -1,5 +1,5 @@
-import '../static/kingdee-web-component/index.js';
-import '../static/kingdee-web-component/index.css';
+import '../static/kwc/index.js';
+import '../static/kwc/index.css';
 import '@kdcloudjs/kdesign/dist/kdesign.css'
 import '../static/css/common.less';
 

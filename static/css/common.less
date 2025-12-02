@@ -23,9 +23,15 @@ code {
   --kwc-default-previewer-border-color: #3d444b;
   --kd-c-tabs-color-text: #c6c9cd;
   --kwc-default-previewer-icon-color: #c6c9cd;
-
 }
-
+[data-direction='rtl'] {
+  .kwc-code-block {
+    &-copyicon {
+      left: 6px;
+      right: unset !important;
+    }
+  }
+}
 .dumi-default-previewer {
   .dumi-default-previewer-demo {
     padding: 0;
@@ -84,6 +90,7 @@ code {
             }
             &-copyicon {
               position: absolute;
+              width: fit-content;
               right: 6px;
               top: 4px;
             }

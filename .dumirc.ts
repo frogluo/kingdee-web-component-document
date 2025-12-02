@@ -3,10 +3,22 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   outputPath: 'docs-dist',
   themeConfig: {
+    rtl: true,
     name: 'kwc',
-    nav: [
-      { title: '介绍', link: '/guide' },
-      { title: '组件', link: '/components' }, // components会默认自动对应到src文件夹
-    ],
+    nav: {
+      'zh-CN': [
+        { title: '介绍', link: '/guide' },
+        { title: '组件', link: '/components' },
+      ],
+      'en-US': [
+        { title: 'Guide', link: '/en-US/guide' },
+        { title: 'Components', link: '/en-US/components' },
+      ],
+    },
   },
+  // 开启 i18n
+  locales: [
+    { id: 'zh-CN', name: '中文' },
+    { id: 'en-US', name: 'English' },
+  ],
 });

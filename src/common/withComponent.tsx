@@ -1,6 +1,6 @@
 import { Icon, Tabs, Tooltip } from '@kdcloudjs/kdesign';
-import { usePrefersColor } from 'dumi';
-import React, { type FC, useState } from 'react';
+import { usePrefersColor, useLocale } from 'dumi';
+import React, { type FC, useEffect, useState } from 'react';
 import CodeBlock from './codeBlock';
 export interface Info {
   language: string;
@@ -15,6 +15,10 @@ export default function withComponent(Component: any): FC<ComponentProps> {
     const { codeInfo, ...rest } = props;
     const [curKey, setCurKey] = useState<string | number>('javascript');
     const [showCode, setShowCode] = useState<boolean>(false);
+    const [direction, setDirection] = useState(
+      document.documentElement.getAttribute('data-direction') || 'ltr',
+    );
+    const locale = useLocale();
 
     const showChange = (language: string | number) => {
       setCurKey(language);
@@ -23,14 +27,35 @@ export default function withComponent(Component: any): FC<ComponentProps> {
     const handleChange = () => {
       setShowCode(!showCode);
     };
-    const [color] = usePrefersColor();
+
+    useEffect(() => {
+      const html = document.documentElement;
+
+      const observer = new MutationObserver(() => {
+        setDirection(html.getAttribute('data-direction') || '');
+      });
+
+      observer.observe(html, {
+        attributes: true,
+        attributeFilter: ['data-direction'],
+      });
+
+      return () => observer.disconnect();
+    }, []);
+
+    const [theme] = usePrefersColor();
     const codeClassName = `kwc-default-previewer-demo-code ${
       showCode ? 'show' : 'hide'
     }`;
     return (
       <div className="kwc-default-previewer-demo-container">
         <div className="kwc-default-previewer-demo-preview">
-          <Component {...(rest as any)} />
+          <Component
+            {...(rest as any)}
+            direction={direction}
+            theme={theme}
+            locale={locale}
+          />
         </div>
         <div className="kwc-default-previewer-demo-code-wrap">
           <div className="kwc-default-previewer-demo-action">
@@ -49,7 +74,7 @@ export default function withComponent(Component: any): FC<ComponentProps> {
                   <CodeBlock
                     codeString={item.content}
                     language={item.language}
-                    isDark={color === 'dark'}
+                    isDark={theme === 'dark'}
                   />
                 </Tabs.TabPane>
               ))}
