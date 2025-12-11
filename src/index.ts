@@ -4,3 +4,4 @@ import '@kdcloudjs/kdesign/dist/kdesign.css'
 import '../static/css/common.less';
 
 export { default as Button } from './Button';
+export { default as Input } from './Input';
