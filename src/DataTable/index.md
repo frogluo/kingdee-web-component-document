@@ -421,7 +421,11 @@ export default class BasicDatatable extends KingdeeElement {
     return !this.checkboxSwitch;
   }
 
-  data = noDataSwitch ? [] : ${JSON.stringify(data, null, 2)};
+  get tableData() {
+    return this.noDataSwitch ? [] : this.data;
+  }
+
+  data = ${JSON.stringify(data, null, 2)};
   columns = ${JSON.stringify(columns, null, 2)};
 }`,
   },
@@ -435,7 +439,7 @@ export default class BasicDatatable extends KingdeeElement {
   </div>
   <kd-datatable
     key-field="id"
-    data={data}
+    data={tableData}
     columns={columns}
     loading={loadingSwitch}
     show-row-number-column={rowNumberSwitch}
@@ -447,6 +451,7 @@ export default class BasicDatatable extends KingdeeElement {
     content: `.kwc-common-container {
   display: flex;
   gap: 48px;
+  margin-bottom: 20px;
 }
 `
   }
