@@ -22,6 +22,13 @@ declare global {
         xl?: number;
         xxl?: number;
       };
+      'kdcq-spin': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'alternative-text'?: string;
+        size?: 'large' | 'medium' | 'small';
+        indicator?: string;
+        delay?: number;
+        loading?: boolean;
+      };
     }
   }
 }
