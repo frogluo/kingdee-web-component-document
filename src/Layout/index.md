@@ -280,6 +280,63 @@ export default class Layout extends KingdeeElement {}`,
 export default () => <Layout.LayoutItemSize codeInfo={codeInfo} />;
 ```
 
+## 布局项内边距
+
+布局项的内边距设置，可选值包括horizontal-small、horizontal-medium、horizontal-large、around-small、around-medium、around-large
+
+```jsx
+import { Layout } from 'kwc';
+
+const codeInfo = [
+  {
+    language: 'javascript',
+    content: `import { KingdeeElement } from '@kdcloudjs/kwc';
+
+export default class Layout extends KingdeeElement {}`,
+  },
+  {
+    language: 'html',
+    content: `<template>
+  <h4>水平内边距 padding="horizontal-small"</h4>
+  <div class="demo-container-bordered">
+    <kd-layout>
+      <kd-layout-item size={8} padding="horizontal-small">
+        horizontal-small
+      </kd-layout-item>
+      <kd-layout-item size={8} padding="horizontal-small">
+        horizontal-small
+      </kd-layout-item>
+      <kd-layout-item size={8} padding="horizontal-small">
+        horizontal-small
+      </kd-layout-item>
+    </kd-layout>
+  </div>
+  
+  <h4 className="section-title">周围内边距 padding="around-medium"</h4>
+  <div className="demo-container-bordered">
+    <kd-layout>
+      <kd-layout-item size={8} padding="around-medium">
+        around-medium
+      </kd-layout-item>
+      <kd-layout-item size={8} padding="around-medium">
+        around-medium
+      </kd-layout-item>
+      <kd-layout-item size={8} padding="around-medium">
+        around-medium
+      </kd-layout-item>
+    </kd-layout>
+  </div>
+</template>`,
+  },
+  {
+    language: 'css',
+    content: '',
+  },
+];
+
+export default () => <Layout.LayoutItemPadding codeInfo={codeInfo} />;
+```
+
 ## API
 
 #### layout
