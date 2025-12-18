@@ -5,6 +5,7 @@ import CodeBlock from './codeBlock';
 export interface Info {
   language: string;
   content: string;
+  tabName?: string;
 }
 export interface ComponentProps {
   codeInfo: Info[];
@@ -13,7 +14,7 @@ export interface ComponentProps {
 export default function withComponent(Component: any): FC<ComponentProps> {
   const ComponentWrap: FC<ComponentProps> = (props) => {
     const { codeInfo, ...rest } = props;
-    const [curKey, setCurKey] = useState<string | number>('javascript');
+    const [curKey, setCurKey] = useState<string | number>('javascript0');
     const [showCode, setShowCode] = useState<boolean>(false);
     const [direction, setDirection] = useState(
       document.documentElement.getAttribute('data-direction') || 'ltr',
@@ -80,7 +81,7 @@ export default function withComponent(Component: any): FC<ComponentProps> {
                         handleChange();
                       }
                     }}
-                    className="demo-code-icon"
+                    className={`demo-code-icon ${showCode ? 'show' : 'hide'}`}
                     type="code"
                     tabIndex={0}
                     role="button"
@@ -92,8 +93,8 @@ export default function withComponent(Component: any): FC<ComponentProps> {
           </div>
           <div className={codeClassName}>
             <Tabs activeKey={curKey} onChange={showChange}>
-              {(codeInfo || []).map((item) => (
-                <Tabs.TabPane key={item.language} tab={item.language}>
+              {(codeInfo || []).map((item, index) => (
+                <Tabs.TabPane key={item.language + index} tab={item.tabName || item.language}>
                   <CodeBlock
                     codeString={item.content}
                     language={item.language}
