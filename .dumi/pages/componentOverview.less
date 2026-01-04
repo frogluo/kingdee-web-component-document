@@ -1,0 +1,40 @@
+.overviewContainer {
+  display: flex;
+  flex-direction: column;
+  .overviewGroup {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-size: 18px;
+      color: #276ff5;
+      margin-bottom: 24px;
+      font-size: 28px;
+    }
+    .itemWrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      .overviewItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        > a > img {
+          width: 240px;
+          height: 140px;
+          border-radius: 8px;
+          transition: all 0.3s;
+          &:hover {
+            box-shadow: 0 3px 8px -4px #00000014, 0 4.5px 14px #0000000d,
+              0 6px 24px 8px #00000008;
+          }
+        }
+        .itemName {
+          margin-top: 12px;
+          font-size: 14px;
+          color: #333333;
+        }
+      }
+    }
+  }
+}

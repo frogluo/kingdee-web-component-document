@@ -5,6 +5,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "react",
+    "module": "esnext",
     "baseUrl": "./",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
@@ -12,5 +13,5 @@
       "kwc/*": ["src/*", "*"]
     }
   },
-  "include": [".dumirc.ts", "src/**/*"]
+  "include": [".dumirc.ts", "src/**/*", "global.d.ts"]
 }

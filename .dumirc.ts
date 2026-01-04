@@ -8,9 +8,10 @@ export default defineConfig({
     name: 'kwc',
     nav: {
       'zh-CN': [
-        { title: '介绍', link: '/guide' },
         { title: '组件', link: '/components' },
         { title: '最佳实践', link: '/bestPractices' },
+        { title: '开发指南', link: '/development-guide' },
+        { title: '快速上手', link: '/getting-started'}
       ],
       'en-US': [
         { title: 'Guide', link: '/en-US/guide' },
@@ -24,7 +25,6 @@ export default defineConfig({
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },
   ],
-  mfsu: false,
   links: [
     {
       rel: 'icon',
