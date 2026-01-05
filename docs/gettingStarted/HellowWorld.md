@@ -38,8 +38,7 @@ title: 'Hello World 计数器'
             variant="brand"
             label={firstButtonLabel}
             onclick={handleFirstClick}
-            class="custom-button"
-          >
+            class="custom-button">
           </kd-button>
           <kd-button
             variant="brand"
