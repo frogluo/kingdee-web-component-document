@@ -36,17 +36,16 @@ title: 'Hello World 计数器'
         <div class="button-group">
           <kd-button
             variant="brand"
-            label="{firstButtonLabel}"
-            onclick="{handleFirstClick}"
+            label={firstButtonLabel}
+            onclick={handleFirstClick}
             class="custom-button"
           >
           </kd-button>
           <kd-button
             variant="brand"
-            label="{secondButtonLabel}"
-            onclick="{handleSecondClick}"
-            class="custom-button"
-          >
+            label={secondButtonLabel}
+            onclick={handleSecondClick}
+            class="custom-button">
           </kd-button>
         </div>
       </div>
